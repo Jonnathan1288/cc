@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Aceptado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        h1 {
+            color: #333333;
+            text-align: center;
+        }
+
+        p {
+            color: #666666;
+            line-height: 1.5;
+        }
+
+        @media only screen and (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>  <img
+            src="https://eduv.tecazuay.edu.ec/pluginfile.php/1/theme_academi/logo/1671035251/LOGO%20CUADRADO_SIN%20FONDO.png"
+            alt="Image" height="130" width="170" class="mb-3"></h1>
+    <h1 th:text="${estado}"></h1>
+    <p th:if="${status == true}" th:text="'¡Felicidades! Nos complace informarte que tu solicitud para el curso '+${nombreCurso}+' ha sido aceptada. Estamos emocionados de tenerte como parte de nuestra comunidad de aprendizaje.'"></p>
+    <p th:if="${status == false}" th:text="'Lamentamos informarte que tu solicitud para el curso '+${nombreCurso}+' no ha sido aceptada en esta ocasión. Agradecemos tu interés y te animamos a seguir explorando otras oportunidades de aprendizaje en nuestra plataforma.'"></p>
+
+    <div th:if="${status == true}">
+        <p>Detalles del curso:</p>
+        <ul>
+            <li th:text="'Curso: '+${nombreCurso}"></li>
+            <li th:text="'Fecha de inicio: '+${fechaInicio}"></li>
+            <li th:text="'Duración: '+${duracio}"></li>
+            <li th:text="'Docente: '+${Docente}"></li>
+        </ul>
+    </div>
+    <p>Si tienes alguna pregunta o necesitas más información, no dudes en contactarnos. ¡Esperamos verte pronto en el curso!</p>
+    <p>Saludos,</p>
+    <p>Equipo del Curso Online</p>
+</div>
+</body>
+</html>
